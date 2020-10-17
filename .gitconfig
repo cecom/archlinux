@@ -1,0 +1,5 @@
+[user]
+	email = sven.oppermann@gmail.com
+	name = Sven Oppermann
+[alias]
+	s = status -sb
