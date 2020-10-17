@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-git clone --bare git@github.com:cecom/archlinux.git $HOME/.cfg
-
 function config {
    /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
 }
