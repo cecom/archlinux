@@ -3,3 +3,5 @@
 	name = Sven Oppermann
 [alias]
 	s = status -sb
+[pull]
+	rebase = true
