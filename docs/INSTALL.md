@@ -65,6 +65,13 @@
 1. Enable Networkmanager: `systemctl enable NetworkManager`
 1. Install LVM Support: `pacman -S lvm2`
 1. Install Stuff: `pacman -S vim sudo`
+1. locale stuff:
+   ```sh
+   vim /etc/locale.gen
+   ... uncomment ...
+   de_DE.UTF-8
+   ```
+1. Locales generieren:`locale-gen`
 1. Edit /etc/mkinitcpio.conf: 
     ```sh
     line #52 add "encrypt lvm2" in between "block" and "filesystems"
