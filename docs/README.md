@@ -14,7 +14,7 @@ INSTALL.md anschauen fuer neues System
    cd yay
    makepkg -si
    ```
-1. yay st-luke-git
+1. st terminal installieren: `yay st-luke-git`
 1. SSH KEY einrichten `ssh-keygen -t ed25519 -a 100` und in Github hinterlegen
 1. Environment clonen: `git clone --bare git@github.com:cecom/archlinux.git $HOME/.cfg`
 1. Setup Script ausführen: `bin/setupPC.sh`
