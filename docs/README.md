@@ -29,33 +29,34 @@ INSTALL.md anschauen fuer neues System
    <summary>PATCH</summary>
    <p>
    
-```
-diff --git a/PKGBUILD b/PKGBUILD
-index 8f26a66..240497a 100644
---- a/PKGBUILD
-+++ b/PKGBUILD
-@@ -15,13 +15,13 @@ depends=('fontconfig' 'xorg-font-utils')
- conflicts=('nerd-fonts-git' 'nerd-fonts-complete-mono-glyphs')
- source=(
-   'fix-installer-font-dir.patch'
--  "${_gitname}-${pkgver}.tar.gz::https://github.com/ryanoasis/nerd-fonts/archive/v${pkgver}.tar.gz"
- )
--sha256sums=('ccf93b108044a87bfb29c3f836d2ce4d5bdb1829702e532a69ccb4ab4aecaceb'
--            'a084ca91a174b547bab4523507824c76aa91ebcf38f9256a4ffd181813f87bd8')
-+sha256sums=('ccf93b108044a87bfb29c3f836d2ce4d5bdb1829702e532a69ccb4ab4aecaceb')
-
- prepare () {
--  cd "$srcdir/$_gitname-$pkgver"
-+  cd "$srcdir"
-+  git clone --branch v${pkgver} --depth 1 https://github.com/ryanoasis/nerd-fonts.git "$_gitname-$pkgver"
-+  cd "$_gitname-$pkgver"
-
-   patch -Np1 -i "$srcdir"/fix-installer-font-dir.patch
- }
-\```
-
+   ```
+   diff --git a/PKGBUILD b/PKGBUILD
+   index 8f26a66..240497a 100644
+   --- a/PKGBUILD
+   +++ b/PKGBUILD
+   @@ -15,13 +15,13 @@ depends=('fontconfig' 'xorg-font-utils')
+    conflicts=('nerd-fonts-git' 'nerd-fonts-complete-mono-glyphs')
+    source=(
+      'fix-installer-font-dir.patch'
+   -  "${_gitname}-${pkgver}.tar.gz::https://github.com/ryanoasis/nerd-fonts/archive/v${pkgver}.tar.gz"
+    )
+   -sha256sums=('ccf93b108044a87bfb29c3f836d2ce4d5bdb1829702e532a69ccb4ab4aecaceb'
+   -            'a084ca91a174b547bab4523507824c76aa91ebcf38f9256a4ffd181813f87bd8')
+   +sha256sums=('ccf93b108044a87bfb29c3f836d2ce4d5bdb1829702e532a69ccb4ab4aecaceb')
+   
+    prepare () {
+   -  cd "$srcdir/$_gitname-$pkgver"
+   +  cd "$srcdir"
+   +  git clone --branch v${pkgver} --depth 1 https://github.com/ryanoasis/nerd-fonts.git "$_gitname-$pkgver"
+   +  cd "$_gitname-$pkgver"
+   
+      patch -Np1 -i "$srcdir"/fix-installer-font-dir.patch
+    }
+   ```
+   
    </p>
    </details>  
+   
    
    ```sh
    git apply download.patch
