@@ -14,3 +14,6 @@ export LC_ALL= LANG=${LOC} LC_CTYPE=${LOC} LC_NUMERIC=${LOC} LC_TIME=${LOC} LC_C
 
 #our config alias
 alias config='/usr/bin/git --git-dir=/home/cecom/.cfg/ --work-tree=/home/cecom'
+
+#neofetch system info
+neofetch
