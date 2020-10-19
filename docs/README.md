@@ -4,7 +4,7 @@ INSTALL.md anschauen fuer neues System
 
 1. Netzwerk: `nmtui` aufrufen und WLAN konfigurieren. Wird durch network-manager nächste mal automatisch geladen
 1. x stuff: `pacman -S xorg xorg-xinit nitrogen picom xmonad xmonad-contrib dmenu`
-1. other stuff: `pacman -S git wget firefox chromium`
+1. other stuff: `pacman -S git neofetch wget firefox chromium`
 1. yay installieren: 
    ```sh
    mkdir tools
@@ -15,6 +15,7 @@ INSTALL.md anschauen fuer neues System
    makepkg -si
    ```
 1. st terminal installieren: `yay st-luke-git`
+1. nerd fonts: `yay nerd-fonts-mononoki`
 1. nerd fonts: 
    ```sh
    #weil download zu groß, muss es anders installiert werden
