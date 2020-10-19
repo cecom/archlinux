@@ -20,6 +20,7 @@ INSTALL.md anschauen fuer neues System
 1. Environment clonen: `git clone --bare git@github.com:cecom/archlinux.git $HOME/.cfg`
 1. Setup Script ausführen: `bin/setupPC.sh`
 1. LibreOffice: `sudo pacman -S libreoffice-still libreoffice-still-de hunspell hunspell-de hyphen hyphen-de libmythes mythes-de`
+1. Gimp: `sudo pacman -S gimp`
 1. Cryptomator: 
    ```sh
    yay fuse2
