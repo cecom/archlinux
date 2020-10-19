@@ -4,7 +4,7 @@ INSTALL.md anschauen fuer neues System
 
 1. Netzwerk: `nmtui` aufrufen und WLAN konfigurieren. Wird durch network-manager nächste mal automatisch geladen
 1. x stuff: `pacman -S xorg xorg-xinit nitrogen picom xmonad xmonad-contrib dmenu`
-1. other stuff: `pacman -S git pacman-contrib neofetch wget firefox chromium`
+1. other stuff: `pacman -S git exa pacman-contrib neofetch wget firefox chromium`
 1. yay installieren: 
    ```sh
    mkdir tools
