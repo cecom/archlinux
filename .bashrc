@@ -5,15 +5,19 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
+### PATH
+if [ -d "$HOME/bin" ] ;
+  then PATH="$HOME/bin:$PATH"
+fi
 
-#local setting
+### LOCALS
 LOC=de_DE.UTF-8
 export LC_ALL= LANG=${LOC} LC_CTYPE=${LOC} LC_NUMERIC=${LOC} LC_TIME=${LOC} LC_COLLATE=${LOC} LC_MONETARY=${LOC} LC_PAPER=${LOC} LC_NAME=${LOC} LC_ADDRESS=${LOC} LC_TELEPHONE=${LOC} LC_MEASUREMENT=${LOC} LC_IDENTIFICATION=${LOC} LC_MESSAGES=C TZ=Europe/Berlin
 
-#export
+### EXPORT
+export TERM="xterm-256color"
 export HISTCONTROL=ignoredups:erasedups   # no duplicate entries
+export EDITOR='vim'
 
 ### SHOPT
 shopt -s autocd # change to named directory
@@ -54,10 +58,13 @@ ex ()
   fi
 }
 
-### ALIASES ###
+### ALIASES 
 
 #our config alias
 alias config='/usr/bin/git --git-dir=/home/cecom/.cfg/ --work-tree=/home/cecom'
+
+#lazy stuff
+alias mkdir='mkdir -p' 
 
 # Changing "ls" to "exa"
 alias ls='exa -al --color=always --group-directories-first' # my preferred listing
@@ -70,6 +77,15 @@ alias l.='exa -a | egrep "^\."'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
+
+### PROMPT
+function _update_ps1() {
+  PS1="$(oh-my-posh -config ~/.config/oh-my-posh/my.json -error $?)"
+}
+
+if [ "$TERM" != "linux" ] && [ -x "$(command -v oh-my-posh)" ]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
 
 #neofetch system info
 neofetch
