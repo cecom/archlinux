@@ -30,7 +30,7 @@ INSTALL.md anschauen fuer neues System
 1. Nextcould: `sudo pacman -S nextcloud-client`
 1. xmobar installieren:
    ```sh
-   cd downloads
+   cd tools
    git clone https://aur.archlinux.org/xmobar-git.git
    cd xmobar-git
    vim PKGBUILD
