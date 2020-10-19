@@ -36,8 +36,8 @@ INSTALL.md anschauen fuer neues System
    #--flags="..." durch --flags="all_extensions" ersetzen
    makepkg -si  
    ```
-1. stuff für xmobar:
+1. stuff für xmobar bzw. xmonad:
    ```sh
-   pacman -S alsa-utils alsa-oss trayer network-manager-applet volumeicon xdotool
+   pacman -S alsa-utils scrot alsa-oss trayer network-manager-applet volumeicon xdotool
    ```
 1. dmenu installieren
