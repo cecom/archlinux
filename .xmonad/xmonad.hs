@@ -111,7 +111,9 @@ myStartupHook = do
           spawnOnce "picom &"
           spawnOnce "nm-applet &"
           spawnOnce "volumeicon &"
-          spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x282c34  --height 22 --iconspacing 2 &"
+          spawnOnce "cryptomator &"
+          spawnOnce "nextcloud &"
+          spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x282c34  --height 21 --iconspacing 2 &"
           setWMName "LG3D"
 
 myColorizer :: Window -> Bool -> X (String, String)
@@ -672,10 +674,10 @@ xmobarEscape = concatMap doubleLts
 myWorkspaces :: [String]
 myWorkspaces = clickable . (map xmobarEscape)
                -- $ ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-               $ ["dev", "www", "sys", "doc", "vbox", "chat", "mus", "vid", "gfx"]
+               $ ["1:term", "2:web", "3:doc", "4:steam", "5:vid", "6:mus","7:sys"]
   where
-        clickable l = [ "<action=xdotool key super+" ++ show (n) ++ "> " ++ ws ++ " </action>" |
-                      (i,ws) <- zip [1..9] l,
+        clickable l = [ "<action=xdotool key super+" ++ show (n) ++ ">" ++ ws ++ "</action>" |
+                      (i,ws) <- zip [1..7] l,
                       let n = i ]
 
 myManageHook :: XMonad.Query (Data.Monoid.Endo WindowSet)
@@ -816,7 +818,7 @@ myKeys =
         , ("<XF86Mail>", runOrRaise "geary" (resource =? "thunderbird"))
         , ("<XF86Calculator>", runOrRaise "gcalctool" (resource =? "gcalctool"))
         , ("<XF86Eject>", spawn "toggleeject")
-        , ("<Print>", spawn "scrotd 0")
+        , ("<Print>", spawn "scrot ~/scrot/%Y-%m-%d-@%H-%M-%S-scrot.png")
         ]
         -- Appending search engine prompts to keybindings list.
         -- Look at "search engines" section of this config for values for "k".
