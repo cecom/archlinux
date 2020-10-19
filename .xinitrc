@@ -33,14 +33,5 @@ fi
 # German Keyboard
 setxkbmap de &
 
-# Wallpaper
-nitrogen --restore &
-
-#Composer
-picom &
-
-#systemtray
-stalonetray &
-
 #Start xmonad
 exec xmonad
