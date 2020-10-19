@@ -39,5 +39,8 @@ nitrogen --restore &
 #Composer
 picom &
 
+#systemtray
+stalonetray &
+
 #Start xmonad
 exec xmonad

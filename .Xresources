@@ -1,3 +1,16 @@
-*.font: Mononoki Nerd Font:size=18:antialias=true:autohint=true;
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: true
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcdfilter
+
+*.font: mononoki Nerd Font:pixelsize=18;
 *.alpha: 0.9
 *.color0: #111
+
+st.bold_font:             0
+st.borderpx:              1
+st.chscale:               1.2
+st.mouseScrollLines:      3
