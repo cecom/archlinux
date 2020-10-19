@@ -34,17 +34,10 @@ INSTALL.md anschauen fuer neues System
    cd xmobar-git
    vim PKGBUILD
    #--flags="..." durch --flags="all_extensions" ersetzen
-   makepkg -si
-
-   
+   makepkg -si  
    ```
-
-
---------
-1. polybar install: 
+1. stuff für xmobar:
    ```sh
-   cd downloads
-   git clone https://aur.archlinux.org/polybar.git
-   cd polybar
-   makepkg -si
+   pacman -S alsa-utils alsa-oss trayer network-manager-applet volumeicon xdotool
    ```
+1. dmenu installieren
