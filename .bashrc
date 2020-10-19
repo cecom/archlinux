@@ -87,5 +87,8 @@ if [ "$TERM" != "linux" ] && [ -x "$(command -v oh-my-posh)" ]; then
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
 
+### Colors
+export LS_COLORS="$(vivid generate molokai)"
+
 #neofetch system info
 neofetch
