@@ -41,4 +41,9 @@ INSTALL.md anschauen fuer neues System
    ```sh
    pacman -S alsa-utils scrot alsa-oss trayer network-manager-applet volumeicon xdotool
    ```
-1. dmenu installieren
+1. citrix:
+   ```sh
+   -- aktuelle tar.gz laden: https://www.citrix.com/de-de/downloads/workspace-app/legacy-workspace-app-for-linux/
+   ex linuxx64-19.12.0.19.tar.gz
+   ./setupwfc
+   ```
