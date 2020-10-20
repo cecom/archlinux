@@ -21,7 +21,7 @@ Config { font    = "xft:Mononoki Nerd Font:pixelsize=14:antialias=true:hinting=t
                       -- Time and date
                       Run Date "\xf133 %b %d %Y (%H:%M)" "date" 50
                       -- Network up and down
-                    , Run Network "wlp3s0" ["-t", "\xf0ab <rx>kb  \xf0aa <tx>kb"] 20
+                    , Run Network "wlp3s0" ["-t", "\xf0aa <rx>kb  \xf0ab <tx>kb"] 20
                       -- Cpu usage in percent
                     , Run Cpu ["-t", "\xf108 cpu: (<total>%)","-H","50","--high","red"] 20
                       -- Ram used number and percent
@@ -29,7 +29,7 @@ Config { font    = "xft:Mononoki Nerd Font:pixelsize=14:antialias=true:hinting=t
                       -- Disk space free
                     , Run DiskU [("/", "\xf0c7 [/ <free>]"), ("/home", "[/home <free>]"), ("/tmp", "[/tmp <free>]")] [] 60
                       -- Runs custom script to check for pacman updates.
-                    , Run Com "/home/cecom/bin/pacupdate" [] "pacupdate" 36000
+                    , Run Com "/home/cecom/bin/pacupdate" [] "pacupdate" 600
                       -- Runs a standard shell command 'uname -r' to get kernel version
                     , Run Com "uname" ["-r"] "" 3600
                       -- Prints out the left side items such as workspaces, layout, etc.
