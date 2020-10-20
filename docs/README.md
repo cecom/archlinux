@@ -55,3 +55,5 @@ INSTALL.md anschauen fuer neues System
    sudo cp Sectigo\ RSA\ Organization\ Validation\ Secure\ Server\ CA /opt/Citrix/ICAClient/keystore/cacerts/sectigo.pem
    sudo openssl rehash /opt/Citrix/ICAClient/keystore/cacerts/
    ```
+1. pcmanfm: `sudo pacman -S pcmanfm-gtk3 file-roler`
+
