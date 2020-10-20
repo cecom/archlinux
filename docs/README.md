@@ -57,4 +57,12 @@ INSTALL.md anschauen fuer neues System
    ```
 1. pcmanfm: `sudo pacman -S pcmanfm-gtk3 file-roler`
 1. pcmanfm thumbs: `sudo pacman -S tumbler poppler-glib ffmpegthumbnailer freetype2 libgsf raw-thumbnailer evince libgsf`
+1. vlc: `sudo pacman -S vlc`
+1. spotify: 
+   ```sh
+   sudo pacman -S libcurl-gnutls
+   curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --import -
+   yay spotify
+   ```
+    
 
