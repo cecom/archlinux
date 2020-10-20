@@ -43,12 +43,10 @@ INSTALL.md anschauen fuer neues System
    ```
 1. citrix:
    ```sh
-   sudo pacman -S  ca-certificates
-   # aktuelle tar.gz laden: https://www.citrix.com/de-de/downloads/workspace-app/linux/workspace-app-for-linux-latest.html
-   ex linuxx64-19.12.0.19.tar.gz
-   ./setupwfc
-   # zertifikate hinzufügen
-   sudo pacman -S  ca-certificates
+   sudo pacman -S ca-certificates libpng12 libxp libjpeg6-turbo libidn11
+   yay hdx-realtime-media-engine
+   
+   #ggf zertifikate hinzufügen
    cd /opt/Citrix/ICAClient/keystore/cacerts/
    sudo cp /etc/ca-certificates/extracted/tls-ca-bundle.pem .
    awk 'BEGIN {c=0;} /BEGIN CERT/{c++} { print > "cert." c ".pem"}' < tls-ca-bundle.pem
