@@ -29,6 +29,7 @@
     vgcreate volgroup0 /dev/mapper/lvm
     lvcreate -L 50GB     volgroup0 -n lv_root
     lvcreate -L 10GB     volgroup0 -n lv_tmp
+    lvcreate -L 32GB     volgroup0 -n lv_swap
     lvcreate -l 100%FREE volgroup0 -n lv_home
     modprobe dm_mod
     vgscan
@@ -39,6 +40,7 @@
     mkfs.ext4 /dev/volgroup0/lv_root
     mkfs.ext4 /dev/volgroup0/lv_tmp
     mkfs.ext4 /dev/volgroup0/lv_home
+    mkswap    /dev/volgroup0/lv_swap
     ```
 1. Mounting Partitions
     ```sh 
@@ -49,6 +51,7 @@
     mount /dev/nvme0n1p2 /mnt/boot
     mount /dev/volgroup0/lv_home /mnt/home
     mount /dev/volgroup0/lv_tmp /mnt/tmp
+    swapon -vs /dev/volgroup0/lv_swap
     ```
 1. Initial system
     ```sh 
