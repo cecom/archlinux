@@ -675,10 +675,10 @@ xmobarEscape = concatMap doubleLts
 myWorkspaces :: [String]
 myWorkspaces = clickable . (map xmobarEscape)
                -- $ ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-               $ ["1:term", "2:web", "3:work", "4:doc", "5:steam", "6:media","7:sys"]
+               $ ["1:term", "2:web", "3:work", "4:doc", "5:fm", "6:media", "7:steam", "8:sys"]
   where
         clickable l = [ "<action=xdotool key super+" ++ show (n) ++ ">" ++ ws ++ "</action>" |
-                      (i,ws) <- zip [1..7] l,
+                      (i,ws) <- zip [1..8] l,
                       let n = i ]
 
 myManageHook :: XMonad.Query (Data.Monoid.Endo WindowSet)
