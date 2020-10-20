@@ -90,5 +90,8 @@ fi
 ### Colors
 export LS_COLORS="$(vivid generate molokai)"
 
-#neofetch system info
+### KEYCHAIN
+eval $(keychain --eval --quiet --agents ssh)
+
+### system info
 neofetch
