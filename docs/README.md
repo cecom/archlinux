@@ -43,7 +43,17 @@ INSTALL.md anschauen fuer neues System
    ```
 1. citrix:
    ```sh
-   -- aktuelle tar.gz laden: https://www.citrix.com/de-de/downloads/workspace-app/legacy-workspace-app-for-linux/
+   sudo pacman -S  ca-certificates
+   # aktuelle tar.gz laden: https://www.citrix.com/de-de/downloads/workspace-app/linux/workspace-app-for-linux-latest.html
    ex linuxx64-19.12.0.19.tar.gz
    ./setupwfc
+   # zertifikate hinzufügen
+   sudo pacman -S  ca-certificates
+   cd /opt/Citrix/ICAClient/keystore/cacerts/
+   sudo cp /etc/ca-certificates/extracted/tls-ca-bundle.pem .
+   awk 'BEGIN {c=0;} /BEGIN CERT/{c++} { print > "cert." c ".pem"}' < tls-ca-bundle.pem
+   # die ba zertifikate via browser laden (export)
+   sudo cp terminal.arbeitsagentur.de /opt/Citrix/ICAClient/keystore/cacerts/terminal.arbeitsagentur.de.pem
+   sudo cp Sectigo\ RSA\ Organization\ Validation\ Secure\ Server\ CA /opt/Citrix/ICAClient/keystore/cacerts/sectigo.pem
+   sudo openssl rehash /opt/Citrix/ICAClient/keystore/cacerts/
    ```
