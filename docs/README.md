@@ -56,4 +56,5 @@ INSTALL.md anschauen fuer neues System
    sudo openssl rehash /opt/Citrix/ICAClient/keystore/cacerts/
    ```
 1. pcmanfm: `sudo pacman -S pcmanfm-gtk3 file-roler`
+1. pcmanfm thumbs: `sudo pacman -S tumbler poppler-glib ffmpegthumbnailer freetype2 libgsf raw-thumbnailer evince libgsf`
 
