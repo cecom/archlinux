@@ -64,5 +64,11 @@ INSTALL.md anschauen fuer neues System
    curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --import -
    yay spotify
    ```
-    
+ 1. dropbox:
+   ```sh
+   sudo pacman -S gendesk
+   cd downloads
+   curl -sS https://linux.dropbox.com/fedora/rpm-public-key.asc | gpg --import -
+   yay dropbox
+   ```
 
