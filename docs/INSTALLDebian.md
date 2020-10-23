@@ -20,4 +20,8 @@
 
 
 1. XStuff: `sudo apt install xorg xinit nitrogen xmonad dmenu`
-1. other stuff: `sudp apt install exa neofetch wget firefox-esr chromium xpad`
+1. other stuff: `sudp apt install exa neofetch wget firefox-esr chromium xpad xclip`
+1. ssh key generieren
+1. x starten mit xmonad in xinitrc
+1. alt+p für firefox
+1. sshkey vom terminal kopieren, public key vorher markieren: "xclip -o | xclip -selection clipboard -i"
