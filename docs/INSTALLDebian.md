@@ -1,8 +1,8 @@
 # DEBIAN Install
 
 1. via usb iso installieren, die hybrid variante.
-2. sudo apt install networkmanager git
-3. linux-firmware:
+1. sudo apt install networkmanager git
+1. linux-firmware:
    ```sh
    git clone git://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
    cd linux-firmware/
@@ -14,6 +14,10 @@
    cd /lib/firmware/
    sudo chown -R root:root amdgpu iwlwifi-* intel/ibt-* 
    ```
-4. kernel 5.8 aus backport einspielen und rebooten
-5. `nmtui` aufrufen und wlan einrichten
+1. kernel 5.8 aus backport einspielen und rebooten
+1. `nmtui` aufrufen und wlan einrichten
 
+
+
+1. XStuff: `sudo apt install xorg xinit nitrogen xmonad dmenu`
+1. other stuff: `sudp apt install exa neofetch wget firefox-esr chromium xpad`
