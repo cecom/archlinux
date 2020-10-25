@@ -4,4 +4,4 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-[[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx --vti
+#[[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx --vti
