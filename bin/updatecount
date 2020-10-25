@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#archlinux
+#cupd=$(checkupdates | wc -l)
+
+#debian
+cupd=$(apt list --upgradable 2>/dev/null | grep -v "^Listing..."  | wc -l)
+
+echo "$cupd"
