@@ -27,7 +27,7 @@
    ```
 1. `nmtui` aufrufen und wlan einrichten
 1. XStuff: `sudo apt install xorg xinit nitrogen xmonad dmenu`
-1. other stuff: `sudp apt install exa neofetch wget firefox-esr chromium xpad xclip wget curl`
+1. other stuff: `sudp apt install exa neofetch wget firefox-esr chromium xpad xclip wget curl vim`
 1. locale stuff:
    ```sh
    vi /etc/locale.gen
