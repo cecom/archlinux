@@ -35,6 +35,15 @@
    de_DE.UTF-8
    ```
 1. Locales generieren:`sudo locale-gen`
+1. st term
+   ```sh
+   sudo apt install libharfbuzz-bin libharfbuzz-dev
+   mkdir tools
+   cd tools
+   git clone https://github.com/LukeSmithxyz/st
+   cd st
+   sudo make install
+   ```
 1. ssh key generieren
 1. x starten mit xmonad in xinitrc
 1. alt+p für firefox
