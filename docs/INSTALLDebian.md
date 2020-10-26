@@ -1,7 +1,7 @@
 # DEBIAN Install
 
 1. via usb iso installieren, die hybrid variante:https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/debian-live-X.X.X-amd64-standard+nonfree.iso
-1. sudo apt install networkmanager git
+1. git: `sudo apt install git`
 1. linux-firmware:
    ```sh
    git clone git://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
@@ -25,16 +25,49 @@
    sudo apt install linux-image-5.8.0-0.bpo.2-amd64
    sudo apt install linux-headers-5.8.0-0.bpo.2-amd64
    ```
-1. `nmtui` aufrufen und wlan einrichten
-1. XStuff: `sudo apt install xorg xinit nitrogen xmonad dmenu`
-1. other stuff: `sudp apt install exa neofetch wget firefox-esr chromium xpad xclip wget curl vim`
+1. Netzwerk:
+   ```sh
+   sudo apt install networkmanager
+   nmtui
+   ```
 1. locale stuff:
    ```sh
    vi /etc/locale.gen
-   ... uncomment ...
-   de_DE.UTF-8
+     ... uncomment ...
+     de_DE.UTF-8
+   
+   sudo locale-gen
    ```
-1. Locales generieren:`sudo locale-gen`
+1. XStuff: `sudo apt install xorg xinit nitrogen xmonad dmenu firefox chromium`
+1. st term
+   ```sh
+   sudo apt install libharfbuzz-bin libharfbuzz-dev
+   mkdir tools
+   cd tools
+   git clone https://github.com/LukeSmithxyz/st
+   cd st
+   sudo make install
+   ```
+1. xmonad starten: `xmonad`
+1. terminal: `alt+return`
+1. chromium: `alt+p + chromium`
+1. auf github projekt gehen
+1. ssh key generieren: `ssh-keygen -t ed25519 -a 100 -C "$(whoami)@$(uname -n)-$(date -I)" -f .ssh/$(whoami)@$(uname -n)-$(date -I)`
+1. auf github hinterlegen
+1. env setup:
+   ```sh
+   git clone --bare git@github.com:cecom/archlinux.git $HOME/.soenv`
+   ```
+1. Setup Script ausführen: `bin/setupPC.sh`
+1. SSH Keychain: `sudo pacman -S keychain`
+1. other stuff: 
+   ```sh
+   sudo apt install \
+    exa  #ls ersatz \
+    neofetch #übersicht bei bash start \ 
+    wget curl vim firefox-esr chromium \
+    xpad # notizen\
+   ```
 1. picom (transparenz):
    ```sh
    sudo apt install libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev  libpcre2-dev  libevdev-dev uthash-dev libev-dev libx11-xcb-dev meson
@@ -45,15 +78,6 @@
    meson --buildtype=release . build
    sudo ninja -C build install
    ```
-1. st term
-   ```sh
-   sudo apt install libharfbuzz-bin libharfbuzz-dev
-   mkdir tools
-   cd tools
-   git clone https://github.com/LukeSmithxyz/st
-   cd st
-   sudo make install
-   ```
 1. power savings:
    ```sh
    sudo apt install tlp tlp-rdw
@@ -61,7 +85,3 @@
    sudo tlp-stat -c
    sudo systemctl status tlp
    ```
-1. ssh key generieren
-1. x starten mit xmonad in xinitrc
-1. alt+p für firefox
-1. sshkey vom terminal kopieren, public key vorher markieren: "xclip -o | xclip -selection clipboard -i"
