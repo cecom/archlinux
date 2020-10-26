@@ -54,6 +54,11 @@
    cd st
    sudo make install
    ```
+1. power savings:
+   ```sh
+   sudo apt install tlp tlp-rdw
+   
+   ```
 1. ssh key generieren
 1. x starten mit xmonad in xinitrc
 1. alt+p für firefox
