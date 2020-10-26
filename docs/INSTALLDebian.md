@@ -1,5 +1,10 @@
 # DEBIAN Install
 
+todo: 
+- script.sh
+- powertop
+
+
 1. via usb iso installieren, die hybrid variante:https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/debian-live-X.X.X-amd64-standard+nonfree.iso
 1. git: `sudo apt install git`
 1. linux-firmware:
