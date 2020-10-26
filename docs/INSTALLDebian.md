@@ -57,7 +57,9 @@
 1. power savings:
    ```sh
    sudo apt install tlp tlp-rdw
-   
+   sudo tlp start
+   sudo tlp-stat -c
+   sudo systemctl status tlp
    ```
 1. ssh key generieren
 1. x starten mit xmonad in xinitrc
