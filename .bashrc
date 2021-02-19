@@ -61,7 +61,7 @@ ex ()
 ### ALIASES 
 
 #our config aliasoenvs
-alias config='/usr/bin/git --git-dir=/home/cecom/.soenv/ --work-tree=/home/cecom'
+alias cfg='/usr/bin/git --git-dir=/home/cecom/.soenv/ --work-tree=/home/cecom'
 
 #lazy stuff
 alias mkdir='mkdir -p' 
