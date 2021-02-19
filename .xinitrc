@@ -33,5 +33,8 @@ fi
 # German Keyboard
 setxkbmap de &
 
+# Start XScreensaver
+xscreensaver -no-splash &
+
 #Start xmonad
 exec xmonad

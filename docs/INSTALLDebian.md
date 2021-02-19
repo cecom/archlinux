@@ -90,3 +90,15 @@ todo:
    sudo tlp-stat -c
    sudo systemctl status tlp
    ```
+
+# screensaver
+1. sudo apt install xscreensaver xscreensaver-data xscreensaver-data-extra xscreensaver-gl xscreensaver-gl-extra rss-glx 
+
+#trayer and killall
+1. sudo apt install trayer psmisc
+
+#cryptomator
+1. sudo apt-get install fuse
+1. app image von cryptomator runterladen
+1. chmod +x cryptomator-1.5.12-x86_64.AppImage
+1. Downloads/cryptomator-1.5.12-x86_64.AppImage  
