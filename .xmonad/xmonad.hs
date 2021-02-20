@@ -116,7 +116,7 @@ myStartupHook = do
           spawnOnce "nextcloud &"
           spawnOnce "dropbox start &"
           spawnOnce "tools/cryptomator-1.5.12-x86_64.AppImage &"
-          spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x282c34  --height 21 --iconspacing 2 &"
+          spawnOnce "trayer --edge bottom --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 2550 --tint 0x282c34  --height 21 --iconspacing 2 &"
           setWMName "LG3D"
 
 myColorizer :: Window -> Bool -> X (String, String)
@@ -677,10 +677,10 @@ xmobarEscape = concatMap doubleLts
 myWorkspaces :: [String]
 myWorkspaces = clickable . (map xmobarEscape)
                -- $ ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-               $ ["1:term", "2:web", "3:work", "4:doc", "5:fm", "6:media", "7:steam", "8:sys"]
+               $ ["1:term", "2:web", "3:work", "4:doc", "5:fm", "6:open", "7:vm", "8:media" , "9:sys"]
   where
         clickable l = [ "<action=xdotool key super+" ++ show (n) ++ ">" ++ ws ++ "</action>" |
-                      (i,ws) <- zip [1..8] l,
+                      (i,ws) <- zip [1..9] l,
                       let n = i ]
 
 myManageHook :: XMonad.Query (Data.Monoid.Endo WindowSet)
@@ -688,14 +688,14 @@ myManageHook = composeAll
      -- using 'doShift ( myWorkspaces !! 7)' sends program to workspace 8!
      -- I'm doing it this way because otherwise I would have to write out
      -- the full name of my workspaces.
-     [ className =? "htop"     --> doShift ( myWorkspaces !! 7 )
-     , title =? "firefox"     --> doShift ( myWorkspaces !! 1 )
+     [ className =? "htop"     --> doShift ( myWorkspaces !! 8 )
+     , title =? "chromium"     --> doShift ( myWorkspaces !! 1 )
      , className =? "mpv"     --> doShift ( myWorkspaces !! 7 )
      -- , className =? "vlc"     --> doShift ( myWorkspaces !! 7 )
      , className =? "Gimp"    --> doShift ( myWorkspaces !! 8 )
      , className =? "Gimp"    --> doFloat
      , title =? "Oracle VM VirtualBox Manager"     --> doFloat
-     , className =? "VirtualBox Manager" --> doShift  ( myWorkspaces !! 4 )
+     , className =? "VirtualBox Manager" --> doShift  ( myWorkspaces !! 6 )
      , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
      ] <+> namedScratchpadManageHook myScratchPads
 
@@ -709,7 +709,10 @@ myKeys =
         [ ("M-C-r", spawn "xmonad --recompile")      -- Recompiles xmonad
         , ("M-S-r", spawn "xmonad --restart")        -- Restarts xmonad
         , ("M-S-q", io exitSuccess)                  -- Quits xmonad
-
+    
+    -- Screensaver
+       , ("M-S-l", spawn "xscreensaver-command -lock") -- lock screen
+    
     -- Open my preferred terminal
         , ("M-<Return>", spawn myTerminal)
 
@@ -736,8 +739,8 @@ myKeys =
 
     -- Windows navigation
         , ("M-m", windows W.focusMaster)     -- Move focus to the master window
-        , ("M-j", windows W.focusDown)       -- Move focus to the next window
-        , ("M-k", windows W.focusUp)         -- Move focus to the prev window
+        , ("M-<Up>", windows W.focusDown)       -- Move focus to the next window
+        , ("M-<Down>", windows W.focusUp)         -- Move focus to the prev window
         --, ("M-S-m", windows W.swapMaster)    -- Swap the focused window and the master window
         , ("M-S-j", windows W.swapDown)      -- Swap focused window with next window
         , ("M-S-k", windows W.swapUp)        -- Swap focused window with prev window
@@ -759,10 +762,10 @@ myKeys =
         , ("M-S-<KP_Multiply>", increaseLimit)              -- Increase number of windows
         , ("M-S-<KP_Divide>", decreaseLimit)                -- Decrease number of windows
 
-        , ("M-h", sendMessage Shrink)                       -- Shrink horiz window width
-        , ("M-l", sendMessage Expand)                       -- Expand horiz window width
-        , ("M-C-j", sendMessage MirrorShrink)               -- Shrink vert window width
-        , ("M-C-k", sendMessage MirrorExpand)               -- Exoand vert window width
+        , ("M-<Left>", sendMessage Shrink)                       -- Shrink horiz window width
+        , ("M-<Right>", sendMessage Expand)                       -- Expand horiz window width
+        , ("M-C-<Left>", sendMessage MirrorShrink)               -- Shrink vert window width
+        , ("M-C-<Right>", sendMessage MirrorExpand)               -- Exoand vert window width
 
     -- Workspaces
         , ("M-.", nextScreen)  -- Switch focus to next monitor

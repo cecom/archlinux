@@ -36,5 +36,8 @@ setxkbmap de &
 # Start XScreensaver
 xscreensaver -no-splash &
 
+#keyring
+eval $(gnome-keyring-daemon -r -d)
+
 #Start xmonad
 exec xmonad

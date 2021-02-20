@@ -3,6 +3,12 @@
 todo: 
 - script.sh
 - powertop
+- keyring funktioniert nicht (nextcloud passwort jedesmal)
+- 
+
+#faq
+- welche taste ist was
+  https://superuser.com/questions/389737/how-do-you-make-volume-keys-and-mute-key-work-in-xmonad
 
 
 1. via usb iso installieren, die hybrid variante:https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/debian-live-X.X.X-amd64-standard+nonfree.iso
@@ -43,7 +49,7 @@ todo:
    
    sudo locale-gen
    ```
-1. XStuff: `sudo apt install xorg xinit nitrogen xmonad dmenu firefox chromium`
+1. XStuff: `sudo apt install xorg xinit nitrogen xmonad dmenu firefox chromium htop`
 1. st term
    ```sh
    sudo apt install libharfbuzz-bin libharfbuzz-dev
@@ -102,3 +108,50 @@ todo:
 1. app image von cryptomator runterladen
 1. chmod +x cryptomator-1.5.12-x86_64.AppImage
 1. Downloads/cryptomator-1.5.12-x86_64.AppImage  
+
+#keyring
+1. sudo apt install gnome-keyring libpam-gnome-keyring libsecret-tools
+
+# nextcloud
+1. sudo apt install nextcloud-desktop
+1. nextcloud
+
+# citrix
+1. https://www.citrix.com/de-de/downloads/workspace-app/linux/workspace-app-for-linux-latest.html
+1. sudo apt install ./Downloads/icaclient_21.1.0.14_amd64.deb
+1. sudo apt install ./Downloads/ctxusb_21.1.0.14_amd64.deb
+1. in chrome auf ica.sdst.sbaintern.de gehen
+1. zertifikat via chrome exportieren
+1. folgendes fÃr die komplette chain machen (jedes einzeln):
+   1. terminal.arbeitsagentur.de anklicken -> export -> base64 singel cert
+   1. cd /opt/Citrix/ICAClient/keystore/cacerts
+   1. sudo cp ~/Downloads/terminal.arbeitsagentur.de terminal.arbeitsagentur.de.cer
+1. sudo openssl rehash /opt/Citrix/ICAClient/keystore/cacerts/
+1. sudo vi /etc/icaclient/config/All_Regions.iniï»¿ 
+   - TransparentKeyPassthï»¿roughï»¿ï»¿=Remote 
+
+# sound
+1. sudo apt install pipewire pipewire-audio-client-libraries libspa-ffmpeg libspa-bluetooth pulseaudio pavucontrol
+1. reboot system
+1. pactl info 
+1. pavucontrol
+1. 
+
+# spotify
+1. curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
+1. echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+1. sudo apt-get update && sudo apt-get install spotify-client
+
+# virtualbox
+1. wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+1. echo "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian bionic contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
+1. sudo apt update
+1. sudo apt install virtualbox-6.1
+
+#sublime
+1. wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+1. sudo apt-get install apt-transport-https
+1. echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+1. sudo apt-get update
+1. sudo apt-get install sublime-text
+1. subl
