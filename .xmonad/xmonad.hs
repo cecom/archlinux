@@ -28,7 +28,7 @@ import XMonad.Hooks.DynamicLog (dynamicLogWithPP, wrap, xmobarPP, xmobarColor, s
 import XMonad.Hooks.EwmhDesktops  -- for some fullscreen events, also for xcomposite in obs.
 import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.ManageDocks (avoidStruts, docksEventHook, manageDocks, ToggleStruts(..))
-import XMonad.Hooks.ManageHelpers (isFullscreen, doFullFloat)
+import XMonad.Hooks.ManageHelpers (isFullscreen, doFullFloat, doCenterFloat, isDialog, doRectFloat)
 import XMonad.Hooks.ServerMode
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.WorkspaceHistory
@@ -71,6 +71,8 @@ import XMonad.Util.EZConfig (additionalKeysP)
 import XMonad.Util.NamedScratchpad
 import XMonad.Util.Run (runProcessWithInput, safeSpawn, spawnPipe)
 import XMonad.Util.SpawnOnce
+
+import XMonad.Util.WindowProperties (Property (..), propertyToQuery)
 
 myFont :: String
 myFont = "xft:Mononoki Nerd Font:bold:size=9:antialias=true:hinting=true"
@@ -677,7 +679,7 @@ xmobarEscape = concatMap doubleLts
 myWorkspaces :: [String]
 myWorkspaces = clickable . (map xmobarEscape)
                -- $ ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-               $ ["1:term", "2:web", "3:work", "4:doc", "5:fm", "6:open", "7:vm", "8:media" , "9:sys"]
+               $ ["1:term", "2:web", "3:work", "4:doc", "5:fm", "6:rd", "7:vm", "8:media" , "9:sys"]
   where
         clickable l = [ "<action=xdotool key super+" ++ show (n) ++ ">" ++ ws ++ "</action>" |
                       (i,ws) <- zip [1..9] l,
@@ -689,15 +691,25 @@ myManageHook = composeAll
      -- I'm doing it this way because otherwise I would have to write out
      -- the full name of my workspaces.
      [ className =? "htop"     --> doShift ( myWorkspaces !! 8 )
-     , title =? "chromium"     --> doShift ( myWorkspaces !! 1 )
      , className =? "mpv"     --> doShift ( myWorkspaces !! 7 )
-     -- , className =? "vlc"     --> doShift ( myWorkspaces !! 7 )
+     -- , className =? "vlc"  --> doShift ( myWorkspaces !! 7 )
      , className =? "Gimp"    --> doShift ( myWorkspaces !! 8 )
      , className =? "Gimp"    --> doFloat
-     , title =? "Oracle VM VirtualBox Manager"     --> doFloat
+     -- remote desktop stuff
+     , className =? "Wfica" --> doFloat
+     , className =? "Wfica" --> doShift  ( myWorkspaces !! 5 )
+     , className =? "Remote Desktop Connection" --> doShift  ( myWorkspaces !! 5 )
+     , className =? "Remote Desktop Connection" --> doCenterFloat
+     , className =? "Windows Security" --> doFloat
+     , className =? "Windows Security" --> doShift  ( myWorkspaces !! 5 )
+     , title =? "Oracle VM VirtualBox Manager"  --> doFloat
      , className =? "VirtualBox Manager" --> doShift  ( myWorkspaces !! 6 )
+     , className =? "VirtualBox Machine"     --> doFloat
      , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
+     -- save dialog in chrome for example is to big without this
+     , propertyToQuery (Role "GtkFileChooserDialog") --> doRectFloat (W.RationalRect 0.25 0.25 0.5 0.5)
      ] <+> namedScratchpadManageHook myScratchPads
+
 
 myLogHook :: X ()
 myLogHook = fadeInactiveLogHook fadeAmount
