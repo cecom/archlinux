@@ -6,7 +6,7 @@ function cfg {
    /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
 }
 
-if cfg checkout; then
+if cfg checkout 2>/dev/null; then
   echo "Checked out cfg.";
 else
   echo "Backing up pre-existing dot files."
