@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
 
-function config {
+set -e
+
+function cfg {
    /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
 }
 
-config checkout
-
-if [ $? = 0 ]; then
-  echo "Checked out config.";
+if cfg checkout; then
+  echo "Checked out cfg.";
 else
-  mkdir -p .config-backup
-  echo "Backing up pre-existing dot files.";
-  config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .config-backup/{}
+  echo "Backing up pre-existing dot files."
+  mkdir -p .cfg-backup
+  cfg checkout 2>&1 | grep "^\s." | sed 's/^[[:space:]]*//g' | tr '[\n]' '[\0]' | xargs -n1 -r0 /bin/bash -c 'mkdir -p ".cfg-backup/$(dirname $@)"; mv "$@" ".cfg-backup/$@"' ''
+  cfg checkout
 fi;
 
-config checkout
-config config --local status.showUntrackedFiles no
+cfg config --local status.showUntrackedFiles no
