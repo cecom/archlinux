@@ -1,0 +1,14 @@
+### SetupCheck
+# .gitconfig.include
+[[ ! -L ~/.gitconfig.include ]] || ln -s .gitconfig.windows .gitconfig.include 
+
+### Tools
+export MAVEN_HOME=/c/tools/apache-maven-3.5.0
+export JAVA_HOME=/c/Program\ Files/Java/jdk1.8.0_181
+export GO_HOME=/c/go
+
+### Aliase
+alias np='/c/Program\ Files\ \(x86\)\/Notepad++\/notepad++.exe'
+alias nps='/c/Program\ Files\ \(x86\)\/Notepad++\/notepad++.exe -multiInst -nosession -noPlugin'
+alias e='start $(cygpath -w $(pwd))'
+

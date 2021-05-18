@@ -1,0 +1,6 @@
+### SetupCheck
+# .gitconfig.include
+[[ ! -L ~/.gitconfig.include ]] && ln -s .gitconfig.linux .gitconfig.include 
+
+#
+

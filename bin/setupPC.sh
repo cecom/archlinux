@@ -17,3 +17,7 @@ else
 fi;
 
 cfg config --local status.showUntrackedFiles no
+
+echo "You need to install:"
+echo "  - p4merge --> https://www.perforce.com/downloads/visual-merge-tool und ggf. sudo apt install qt5-default"
+

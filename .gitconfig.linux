@@ -1,0 +1,23 @@
+[core]
+  editor = 'vim'
+
+[merge]
+    tool = merge-p4merge
+    keepBackup = false
+    keepTemporaries = false
+    renormalize = true
+    renamelimit = 10000
+[mergetool]
+    prompt = false
+    keepTemporaries = false
+    keepBackup = false
+[mergetool "merge-p4merge"]
+    cmd = $HOME/tools/perforce/bin/p4merge -dw -tw 4 -C \"utf8\" \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+
+[diff]
+    tool = diff-p4merge
+    #algorithm = patience
+[difftool]
+    prompt = false
+[difftool "diff-p4merge"]
+    cmd = "if [ \"$LOCAL\" == \"/dev/null\" ] ; then EMPTY=\"true\"; echo \"\" 2>$TMP/empty; LOCAL=$TMP/empty; fi; if [ \"$REMOTE\" == \"/dev/null\" ] ; then EMPTY=\"true\"; echo \"\" 2>$TMP/empty; REMOTE=$TMP/empty; fi; $HOME/tools/perforce/bin/p4merge -dw -tw 4 -C \"utf8\" \"$LOCAL\" \"$REMOTE\"; if [ \"$EMPTY\" == \"true\" ] ; then rm $TMP/empty; fi;"

@@ -1,0 +1,23 @@
+Font=mononoki NF
+
+FontHeight=14
+FontSmoothing=default
+AllowBlinking=yes
+Columns=128
+Rows=64
+PgUpDnScroll=yes
+ThemeFile=
+Transparency=
+BoldAsFont=no
+BoldAsColour=no
+Term=xterm-256color
+
+CursorType=underscore
+CursorColour=253,157,79
+
+FontWeight=400
+FontIsBold=no
+EmojiPlacement=stretch
+Transparency=off
+Locale=C
+Charset=UTF-8

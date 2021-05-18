@@ -10,29 +10,31 @@
           "foreground": "#E5C07B",
           "properties": {
             "time_format": "15:04:05",
-            "prefix": "[",
-            "postfix": "]"
+            "prefix": "",
+            "postfix": ""
           }
-        },
-        {
-          "type": "root",
-          "style": "plain",
-          "foreground": "#B5B50D"
         },
         {
           "type": "session",
           "style": "plain",
-          "foreground": "#98be65"
+          "foreground": "#98be65",
+          "properties": {
+            "default_user_name": "OppermanS002",
+            "display_default_user": false
+          }
         },
         {
           "type": "path",
           "style": "plain",
           "foreground": "#61AFEF",
           "properties": {
-            "style": "short"
+            "style": "folder"
+            ,"mapped_locations": [
+              ["C:\\msys64\\home\\OppermanS002", "~"]
+            ]
           }
         },
-        {
+	      {
           "type": "git",
           "style": "plain",
           "foreground": "#F3C267",
@@ -45,19 +47,41 @@
           }
         },
         {
+          "type": "root",
+          "style": "plain",
+          "foreground": "#B5B50D"
+        },        
+        {
           "type": "exit",
           "style": "plain",
           "foreground": "#C94A16"
-        },
-        {
+        }
+        ,{
           "type": "text",
           "style": "plain",
           "foreground": "#E06C75",
           "properties": {
-            "prefix": " ",
-            "text": "\u276F"
+            "prefix": "",
+            "text": "\uf054"
           }
         }
+      ]
+    },
+    {
+      "type": "rprompt",
+      "alignment": "right",
+      "segments": [
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "#61AFEF",
+          "properties": {
+            "style": "agnoster_full"
+            ,"mapped_locations": [
+              ["C:\\msys64\\home\\OppermanS002", "~"]
+            ]
+          }
+        } 
       ]
     }
   ],
