@@ -7,11 +7,12 @@ function cfg {
 }
 
 if cfg checkout 2>/dev/null; then
-  echo "Checked out cfg.";
+  echo "Checked out cfg from repo.";
 else
   echo "Backing up pre-existing dot files."
   mkdir -p .cfg-backup
   cfg checkout 2>&1 | grep "^\s." | sed 's/^[[:space:]]*//g' | tr '[\n]' '[\0]' | xargs -n1 -r0 /bin/bash -c 'mkdir -p ".cfg-backup/$(dirname $@)"; mv "$@" ".cfg-backup/$@"' ''
+  echo "Checked out cfg from repo."
   cfg checkout
 fi;
 
