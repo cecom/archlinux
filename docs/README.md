@@ -72,5 +72,3 @@ INSTALL.md anschauen fuer neues System
    curl -sS https://linux.dropbox.com/fedora/rpm-public-key.asc | gpg --import -
    yay dropbox
    ```
-   
-
