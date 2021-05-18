@@ -32,7 +32,7 @@ if [ -x ~/bin/keychain ] && [ -e $PRIVATE_KEY ]; then
 fi
 
 ### Update if necessary
-[[ -x "$HOME/bin/update_config" ]] && $HOME/bin/update_config
+[[ -x "$HOME/bin/updateCfg" ]] && $HOME/bin/updateCfg
 
 ### ALIASES 
 

@@ -1,0 +1,47 @@
+#!/usr/bin/env zsh
+set -e
+
+function ask() {
+    local MESSAGE="$1"
+    read -q -t50 "reply?${MESSAGE} (y/N) "
+    echo ""
+    [ "${reply}" = "y" ]
+}
+
+function update_git() {
+    echo "====== Update needed ==================="
+    echo "== Remote Changes:"
+    cfg --no-pager lg HEAD..FETCH_HEAD --stat
+    echo "========================================"
+
+    if [[ -n $(cfg status --porcelain) ]]; then 
+       echo
+       echo "====== You have local changes =========="
+       echo "== You changed:"
+       cfg s
+       echo "========================================"
+
+       echo 
+       if ask "Do you want to see what you did?"; then
+          cfg diff HEAD --
+       fi
+
+       if ask "Reset your Changes? (reset --hard HEAD)"; then
+          cfg reset --hard HEAD
+       fi
+    fi
+   
+    echo
+    if ask "Local branch is out of date. Upgrade?"; then
+       cfg pull
+    fi
+}
+
+function check_git() {
+    cfg fetch --quiet > /dev/null
+    if [ ! $(cfg merge-base --is-ancestor FETCH_HEAD HEAD) ]; then
+       update_git
+    fi
+}
+
+check_git
