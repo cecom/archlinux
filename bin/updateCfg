@@ -33,7 +33,7 @@ function update_git() {
    
     echo
     if ask "Local branch is out of date. Upgrade?"; then
-       cfg pull
+       cfg rebase FETCH_HEAD
     fi
 }
 
