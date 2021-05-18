@@ -39,7 +39,8 @@ function update_git() {
 
 function check_git() {
     cfg fetch --quiet > /dev/null
-    if [ ! $(cfg merge-base --is-ancestor FETCH_HEAD HEAD) ]; then
+    #if the HEAD is not the same SHA1 as the FETCH_HEAD and the FETCH_HEAD is not an ancestor of HEAD, there is something new on the remote side
+    if [[ "$(cfg rev-parse FETCH_HEAD)" != "$(cfg rev-parse HEAD)" && ! $(cfg merge-base --is-ancestor FETCH_HEAD HEAD) ]]; then
        update_git
     fi
 }
