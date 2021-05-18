@@ -19,7 +19,7 @@
           "style": "plain",
           "foreground": "#98be65",
           "properties": {
-            "default_user_name": "OppermanS002",
+            "default_user_name": "cecom",
             "display_default_user": false
           }
         },
@@ -30,7 +30,7 @@
           "properties": {
             "style": "folder"
             ,"mapped_locations": [
-              ["C:\\msys64\\home\\OppermanS002", "~"]
+              ["C:\\msys64\\home\\cecom", "~"]
             ]
           }
         },
