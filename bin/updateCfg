@@ -8,7 +8,7 @@ function ask() {
     [ "${reply}" = "y" ]
 }
 
-function update_git() {
+function update_cfg() {
     echo "====== Update needed ==================="
     echo "== Remote Changes:"
     cfg --no-pager lg HEAD..FETCH_HEAD --stat
@@ -37,11 +37,33 @@ function update_git() {
     fi
 }
 
+function push_cfg() {
+    echo "====== Push needed ==================="
+    echo "== Local Changes:"
+    cfg --no-pager diff FETCH_HEAD..HEAD --stat
+    echo "========================================"
+
+    echo 
+    if ask "Do you want to see what you did?"; then
+       cfg diff FETCH_HEAD HEAD --
+    fi
+
+    echo
+    if ask "Push it?"; then
+       cfg push
+    fi
+}
+
 function check_git() {
     cfg fetch --quiet > /dev/null
     #if there are changes on the remote side, which we dont have do an update
     if [[ $(cfg lg FETCH_HEAD ^HEAD | wc -l) -gt 0 ]]; then
-       update_git
+       update_cfg
+    fi
+
+    #if there are changes locally, which are not pushed push them
+    if [[ $(cfg lg HEAD ^FETCH_HEAD | wc -l) -gt 0 ]]; then
+       push_cfg
     fi
 }
 
