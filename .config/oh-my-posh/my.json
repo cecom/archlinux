@@ -1,78 +1,84 @@
 {
-  "osc99": true, 
-  "console_title": true,
-  "console_title_style": "template",
-  "console_title_template": "{{.User}}@{{.Host}} > {{.Folder}}",
-  "final_space": false,
-  "blocks": [
+  "osc99":true,
+  "console_title":true,
+  "console_title_style":"template",
+  "console_title_template":"{{.User}}@{{.Host}} > {{.Folder}}",
+  "final_space":false,
+  "blocks":[
     {
-      "type": "prompt",
-      "alignment": "left",
-      "segments": [
+      "type":"prompt",
+      "alignment":"left",
+      "segments":[
         {
-          "type": "time",
-          "style": "plain",
-          "foreground": "#E5C07B",
-          "properties": {
-            "time_format": "15:04:05",
-            "prefix": "",
-            "postfix": ""
-          }
-        },
-	      {
-          "type": "git",
-          "style": "plain",
-          "foreground": "#F3C267",
-          "properties": {
-            "prefix": "(",
-            "postfix": ")",
-            "display_status": false
+          "type":"time",
+          "style":"plain",
+          "foreground":"#E5C07B",
+          "properties":{
+            "time_format":"15:04:05",
+            "prefix":"",
+            "postfix":""
           }
         },
         {
-          "type": "root",
-          "style": "plain",
-          "foreground": "#B5B50D"
+          "type":"git",
+          "style":"plain",
+          "foreground":"#F3C267",
+          "properties":{
+            "prefix":"(",
+            "postfix":")",
+            "display_status":false
+          }
         },
         {
-          "type": "path",
-          "style": "plain",
-          "foreground": "#61AFEF",
-          "properties": {
-            "style": "agnoster_full"
-            ,"mapped_locations": [
-               ["C:\\msys64\\home\\cecom", "~"] 
-              ,["C:\\msys64\\home\\Arbeit", "~"]
+          "type":"root",
+          "style":"plain",
+          "foreground":"#B5B50D"
+        },
+        {
+          "type":"path",
+          "style":"plain",
+          "foreground":"#61AFEF",
+          "properties":{
+            "style":"agnoster_full",
+            "mapped_locations":[
+              [
+                "C:\\msys64\\home\\cecom",
+                "~"
+              ],
+              [
+                "C:\\msys64\\home\\Arbeit",
+                "~"
+              ]
             ]
           }
         },
         {
-          "type": "exit",
-          "style": "plain",
-          "foreground": "#E06C75"
-        }
-        ,{
-          "type": "text",
-          "style": "plain",
-          "foreground": "#E06C75",
-          "properties": {
-            "prefix": "",
-            "text": "\uf054"
+          "type":"exit",
+          "style":"plain",
+          "foreground":"#E06C75"
+        },
+        {
+          "type":"text",
+          "style":"plain",
+          "foreground":"#E06C75",
+          "properties":{
+            "prefix":"",
+            "text":"\uf054"
           }
         }
       ]
     },
     {
-      "type": "rprompt",
-      "alignment": "right",
-      "segments": [
+      "type":"rprompt",
+      "alignment":"right",
+      "segments":[
         {
-          "type": "session",
-          "style": "plain",
-          "foreground": "#98be65",
-          "properties": {
-            "default_user_name": "cecom",
-            "display_default_user": false
+          "type":"session",
+          "style":"plain",
+          "foreground":"#98be65",
+          "properties":{
+            "default_user_name":"cecom",
+            "display_default_user":false
           }
         }
       ]
