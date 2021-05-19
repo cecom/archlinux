@@ -1,67 +1,81 @@
 [user]
-	email = sven.oppermann@iosus.de
-	name = Sven Oppermann
+  email = sven.oppermann@iosus.de
+  name = Sven Oppermann
 
 [include]
-        path = ./.gitconfig.include
+  path = ./.gitconfig.include
 
 [core]
-	filemode = false
-	ignorecase = true
-	quotepath = off
-	preloadindex = true
-	fscache = true
-	eol = native
-	longpaths = true
-	pager = less -+$LESS -R
-	autocrlf = true
+  filemode = false
+  ignorecase = true
+  quotepath = off
+  preloadindex = true
+  fscache = true
+  eol = native
+  longpaths = true
+  pager = less -+$LESS -R
+  autocrlf = true
 
 [i18n]
-	commitencoding = utf-8
-	logoutputencoding = utf-8
+  commitencoding = utf-8
+  logoutputencoding = utf-8
     
 [rerere]
-	enabled = true
+  enabled = true
 
 [color]
-	ui = auto
+  ui = auto
 
 [alias]
-    #List all aliases
-    la = "!git config -l | grep alias | sort | cut -c 7-"
+  #List all aliases
+  la = "!git config -l | grep alias | sort | cut -c 7-"
+  #Zeigt den Status der Workarea und des Index an. Eine Zeile pro Datei.
+  s = status -sb
+  
+  #Zeigt die Commit Historie formatiert an. Eine Zeile pro Commit.
+  lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  lgnp = !sh -c 'git --no-pager lg'
+  
+  #Commit Lazy Stuff
+  c = commit
+  ca = commit -a 
+  cm = commit -m
+  cam = commit -a -m
+  caa = commit -a --amend
+  caan = commit -a --amend --no-edit    
+  
+  #Zeigt die letzten 10 benutzten Branches an, in der Reihenfolge der Nutzung.
+  b = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short)'
 
-    #Zeigt den Status der Workarea und des Index an. Eine Zeile pro Datei.
-    s = status -sb
-    
-    #Zeigt die Commit Historie formatiert an. Eine Zeile pro Commit.
-    lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-    lgnp = !sh -c 'git --no-pager lg'
-    
-    #Commit Lazy Stuff
-    c = commit
-    ca = commit -a 
-    cm = commit -m
-    cam = commit -a -m
-    caa = commit -a --amend
-    caan = commit -a --amend --no-edit    
+[merge]
+  keepBackup = false
+  keepTemporaries = false
+  renormalize = true
+  renamelimit = 10000
 
-    #Zeigt die letzten 10 benutzten Branches an, in der Reihenfolge der Nutzung.
-    b = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short)'
+[merge "pom"]
+  name = pom merge driver
+  driver = java -jar -client -Xverify:none -Xms32m -Xmx32m ~/tools/pomutils/pomutils.jar --debug merge --base=%O --our=%A --their=%B
+
+[mergetool]
+  prompt = false
+  keepTemporaries = false
+  keepBackup = false
+
+[difftool]
+  prompt = false
 
 [branch]
-	autosetupmerge = true
-	autosetuprebase = always
+  autosetupmerge = true
+  autosetuprebase = always
 
 [pull]
-	rebase = true
+  rebase = true
 
 [push]
-	default = current
+  default = current
 
 [remote]
-	pushdefault = origin
-	
-[merge "pom"]
-    name = pom merge driver
-    driver = java -jar -client -Xverify:none -Xms32m -Xmx32m ~/tools/pomutils/pomutils.jar --debug merge --base=%O --our=%A --their=%B
+  pushdefault = origin
+
 

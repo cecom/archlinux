@@ -2,22 +2,11 @@
   editor = 'C:/Program Files/Sublime Text 3/subl.exe' -w
 
 [merge]
-    tool = merge-p4merge
-    keepBackup = false
-    keepTemporaries = false
-    renormalize = true
-    renamelimit = 10000
-[mergetool]
-    prompt = false
-    keepTemporaries = false
-    keepBackup = false
+  tool = merge-p4merge
 [mergetool "merge-p4merge"]
-    cmd = 'C:/Program Files/Perforce/p4merge.exe' -dw -tw 4 -C \"utf8\" \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+  cmd = 'C:/Program Files/Perforce/p4merge.exe' -dw -tw 4 -C \"utf8\" \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 
 [diff]
-    tool = diff-p4merge
-    #algorithm = patience
-[difftool]
-    prompt = false
+  tool = diff-p4merge
 [difftool "diff-p4merge"]
     cmd = "if [ \"$LOCAL\" == \"/dev/null\" ] ; then EMPTY=\"true\"; echo \"\" 2>$TMP/empty; LOCAL=$TMP/empty; fi; if [ \"$REMOTE\" == \"/dev/null\" ] ; then EMPTY=\"true\"; echo \"\" 2>$TMP/empty; REMOTE=$TMP/empty; fi; 'C:/Program Files/Perforce/p4merge.exe' -dw -tw 4 -C \"utf8\" \"$LOCAL\" \"$REMOTE\"; if [ \"$EMPTY\" == \"true\" ] ; then rm $TMP/empty; fi;"
