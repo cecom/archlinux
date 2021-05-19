@@ -1,5 +1,5 @@
 [core]
-  editor = 'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst -nosession -noPlugin
+  editor = 'C:/Program Files/Sublime Text 3/subl.exe' -w
 
 [merge]
     tool = merge-p4merge
