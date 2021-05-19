@@ -15,9 +15,10 @@
 	longpaths = true
 	pager = less -+$LESS -R
 	autocrlf = true
-[http]
-	sslVerify = false
-[https]
+
+[i18n]
+	commitencoding = utf-8
+	logoutputencoding = utf-8
     
 [rerere]
 	enabled = true
@@ -25,40 +26,18 @@
 [color]
 	ui = auto
 
-[push]
-	default = current
-
-[i18n]
-	commitencoding = utf-8
-	logoutputencoding = utf-8
-
-[branch]
-	autosetupmerge = true
-	autosetuprebase = always
-
-	
-[merge "pom"]
-    name = My merge strategy.
-    #driver = java -jar -client -Xverify:none -Xms32m -Xmx32m ./buildmgr/automerge/pomutils.jar merge --base=%O --our=%A --their=%B --ruleset=./buildmgr/automerge/pomutilsMergeRuleset.yaml 
-	driver = java -jar -client -Xverify:none -Xms32m -Xmx32m ~/tools/pomutils/pomutils.jar --debug merge --base=%O --our=%A --their=%B 
-	#driver = java -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000 -jar -client -Xverify:none -Xms32m -Xmx32m /c/allegro/pomutils/target/pomutils-develop.jar merge --base=%O --our=%A --their=%B
-	#driver = java -jar -client -Xverify:none -Xms32m -Xmx32m /c/allegro/pomutils/target/pomutils-develop.jar merge --base=%O --our=%A --their=%B --ruleset=./buildmgr/automerge/pomutilsMergeRuleset.yaml
-
-[remote]
-	pushdefault = origin
-
 [alias]
+    #List all aliases
+    la = "!git config -l | grep alias | sort | cut -c 7-"
+
     #Zeigt den Status der Workarea und des Index an. Eine Zeile pro Datei.
     s = status -sb
     
     #Zeigt die Commit Historie formatiert an. Eine Zeile pro Commit.
-    lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit --date=relative
+    lg = log --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     lgnp = !sh -c 'git --no-pager lg'
     
-    #Zeigt die letzten 10 benutzten Branches an, in der Reihenfolge der Nutzung.
-    b = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short)'
-
-    #commits
+    #Commit Lazy Stuff
     c = commit
     ca = commit -a 
     cm = commit -m
@@ -66,5 +45,20 @@
     caa = commit -a --amend
     caan = commit -a --amend --no-edit    
 
-    #list aliases
-    la = "!git config -l | grep alias | sort | cut -c 7-"
+    #Zeigt die letzten 10 benutzten Branches an, in der Reihenfolge der Nutzung.
+    b = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short)'
+
+[branch]
+	autosetupmerge = true
+	autosetuprebase = always
+
+[push]
+	default = current
+
+[remote]
+	pushdefault = origin
+	
+[merge "pom"]
+    name = pom merge driver
+    driver = java -jar -client -Xverify:none -Xms32m -Xmx32m ~/tools/pomutils/pomutils.jar --debug merge --base=%O --our=%A --their=%B
+
