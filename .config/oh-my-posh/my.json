@@ -1,4 +1,9 @@
 {
+  "osc99": true, 
+  "console_title": true,
+  "console_title_style": "template",
+  "console_title_template": "{{.User}}@{{.Host}} > {{.Folder}}",
+  "final_space": false,
   "blocks": [
     {
       "type": "prompt",
@@ -14,27 +19,6 @@
             "postfix": ""
           }
         },
-        {
-          "type": "session",
-          "style": "plain",
-          "foreground": "#98be65",
-          "properties": {
-            "default_user_name": "cecom",
-            "display_default_user": false
-          }
-        },
-        {
-          "type": "path",
-          "style": "plain",
-          "foreground": "#61AFEF",
-          "properties": {
-            "style": "folder"
-            ,"mapped_locations": [
-              ["C:\\msys64\\home\\cecom", "~"],
-              ["C:\\msys64\\home\\Arbeit", "~"]
-            ]
-          }
-        },
 	      {
           "type": "git",
           "style": "plain",
@@ -42,20 +26,30 @@
           "properties": {
             "prefix": "(",
             "postfix": ")",
-            "display_status": false,
-            "branch_identical_icon": "\uF14A",
-            "branch_gone_icon": "\u274E"
+            "display_status": false
           }
         },
         {
           "type": "root",
           "style": "plain",
           "foreground": "#B5B50D"
-        },        
+        },
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "#61AFEF",
+          "properties": {
+            "style": "agnoster_full"
+            ,"mapped_locations": [
+               ["C:\\msys64\\home\\cecom", "~"] 
+              ,["C:\\msys64\\home\\Arbeit", "~"]
+            ]
+          }
+        },
         {
           "type": "exit",
           "style": "plain",
-          "foreground": "#C94A16"
+          "foreground": "#E06C75"
         }
         ,{
           "type": "text",
@@ -73,19 +67,15 @@
       "alignment": "right",
       "segments": [
         {
-          "type": "path",
+          "type": "session",
           "style": "plain",
-          "foreground": "#61AFEF",
+          "foreground": "#98be65",
           "properties": {
-            "style": "agnoster_full"
-            ,"mapped_locations": [
-               ["C:\\msys64\\home\\cecom", "~"] 
-              ,["C:\\msys64\\home\\Arbeit", "~"]
-            ]
+            "default_user_name": "cecom",
+            "display_default_user": false
           }
-        } 
+        }
       ]
     }
-  ],
-  "final_space": false
+  ]
 }
