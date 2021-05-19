@@ -31,7 +31,12 @@
 1. *Initial Setup* ausführen
 
 # Initial Setup (sowohl Windows als auch Linux)
-1. `ssh-keygen -t ed25519 -a 100 -C "$(whoami | tr '[:upper:]' '[:lower:]')@$(uname -n | tr '[:upper:]' '[:lower:]')-$(date -I)" -f .ssh/$(whoami)@$(uname -n)-$(date -I)`
+1. SSH-KEY anlegen 
+```
+SSH_NAME=$(whoami | tr '[:upper:]' '[:lower:]') \
+SSH_MACHINE=$(uname -n | tr '[:upper:]' '[:lower:]')-$(date -I) \
+bash  -c 'ssh-keygen -t ed25519 -a 100 -C "${SSH_NAME}@${SSH_MACHINE}" -f .ssh/${SSH_NAME}@${SSH_MACHINE}'
+```
 1. public key in github hinterlegen
 1. .ssh/config anlegen und private key hinterlegen:
    ```
