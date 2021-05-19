@@ -34,21 +34,12 @@
 # Initial Setup (sowohl Windows als auch Linux)
 1. SSH-KEY anlegen 
 ```
-SSH_NAME=$(whoami | tr '[:upper:]' '[:lower:]') \
-SSH_MACHINE=$(uname -n | tr '[:upper:]' '[:lower:]')-$(date -I) \
-bash  -c 'ssh-keygen -t ed25519 -a 100 -C "${SSH_NAME}@${SSH_MACHINE}" -f .ssh/${SSH_NAME}@${SSH_MACHINE}'
+export SSH_NAME=$(whoami | tr '[:upper:]' '[:lower:]')
+export SSH_MACHINE=$(uname -n | tr '[:upper:]' '[:lower:]')-$(date -I)
+ssh-keygen -t ed25519 -a 100 -C "${SSH_NAME}@${SSH_MACHINE}" -f .ssh/${SSH_NAME}@${SSH_MACHINE}
+echo "IdentityFile ~/.ssh/${SSH_NAME}@${SSH_MACHINE}" > .ssh/myLocalIdentityFile
 ```
 1. public key in github hinterlegen
-1. .ssh/config anlegen und private key hinterlegen:
-   ```
-   CanonicalizeHostname yes
-   AddKeysToAgent yes
-
-   IdentityFile ~/.ssh/<XXXsshKey>
-
-   Host *
-     User cecom
-   ```
 1. Intial setup
    ```
    git clone --bare git@github.com:cecom/MyDevEnv.git $HOME/.cfg
