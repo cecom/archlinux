@@ -30,7 +30,8 @@
           "properties": {
             "style": "folder"
             ,"mapped_locations": [
-              ["C:\\msys64\\home\\cecom", "~"]
+              ["C:\\msys64\\home\\cecom", "~"],
+              ["C:\\msys64\\home\\Arbeit", "~"]
             ]
           }
         },
@@ -78,7 +79,8 @@
           "properties": {
             "style": "agnoster_full"
             ,"mapped_locations": [
-              ["C:\\msys64\\home\\OppermanS002", "~"]
+               ["C:\\msys64\\home\\cecom", "~"] 
+              ,["C:\\msys64\\home\\Arbeit", "~"]
             ]
           }
         } 
