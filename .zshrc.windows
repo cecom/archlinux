@@ -12,4 +12,5 @@ export GO_HOME=/c/go
 alias np='/c/Program\ Files\ \(x86\)\/Notepad++\/notepad++.exe'
 alias nps='/c/Program\ Files\ \(x86\)\/Notepad++\/notepad++.exe -multiInst -nosession -noPlugin'
 alias e='start $(cygpath -w $(pwd))'
+alias subl='/c/Program\ Files/Sublime\ Text\ 3/subl.exe'
 
