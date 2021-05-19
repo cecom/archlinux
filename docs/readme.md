@@ -3,6 +3,7 @@
 
 # Install Windows
 
+1. Suchen nach "Developer Mode" -> Developer Mode -> aktivieren  (für symlinks benötigt)
 1. msys installieren
 1. msys starten
 1. pacman -Sy git vim curl tar unrar zsh socat

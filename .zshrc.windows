@@ -1,6 +1,7 @@
 ### SetupCheck
+
 # .gitconfig.include
-[[ ! -L ~/.gitconfig.include ]] || ln -s .gitconfig.windows .gitconfig.include 
+[[ -L ~/.gitconfig.include ]] || ln -s .gitconfig.windows .gitconfig.include 
 
 ### Tools
 export MAVEN_HOME=/c/tools/apache-maven-3.5.0
