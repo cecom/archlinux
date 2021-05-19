@@ -1,0 +1,19 @@
+[core]
+  editor = 'vim'
+
+[merge]
+    tool = vimdiff
+    conflictstyle = diff3
+    keepBackup = false
+    keepTemporaries = false
+    renormalize = true
+    renamelimit = 10000
+[mergetool]
+    prompt = false
+    keepTemporaries = false
+    keepBackup = false
+
+[diff]
+    tool = vimdiff
+[difftool]
+    prompt = false

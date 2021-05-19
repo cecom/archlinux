@@ -1,7 +1,12 @@
 ### SetupCheck
 
 # .gitconfig.include
-[[ -L ~/.gitconfig.include ]] || ln -s .gitconfig.linux .gitconfig.include 
+# check if there is an XServer available
+if timeout 1s xset q &>/dev/null; then
+   ln -fs .gitconfig.linux.ui .gitconfig.include
+else
+   ln -fs .gitconfig.linux.nonui .gitconfig.include   
+fi
 
 #
 

@@ -4,6 +4,16 @@
 - x - shift - enter --> dmenu
 - x - enter --> terminal
 
+# vimdiff
+|  Command|Description|
+| --------|-----------|
+| :qa       | exit all files |
+| :wqa      | exit all files and write |
+| :diffg RE | get from REMOTE |
+| :diffg BA | get from BASE   |
+| :diffg LO | get from LOCAL  |
+
+
 # Shortcuts Shell
 |  Command|Description|
 | --------|-----------|

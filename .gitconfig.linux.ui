@@ -11,12 +11,13 @@
     prompt = false
     keepTemporaries = false
     keepBackup = false
+
+
 [mergetool "merge-p4merge"]
     cmd = $HOME/tools/perforce/bin/p4merge -dw -tw 4 -C \"utf8\" \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 
 [diff]
     tool = diff-p4merge
-    #algorithm = patience
 [difftool]
     prompt = false
 [difftool "diff-p4merge"]
