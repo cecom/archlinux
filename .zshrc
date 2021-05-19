@@ -1,7 +1,6 @@
 # If not running interactively, don't do anything 
 [[ $- != *i* ]] && return
 
-
 ### COLORS
 ~/bin/shellcolors
 
@@ -24,11 +23,15 @@ setopt inc_append_history autocd nomatch autopushd pushdignoredups promptsubst h
 unsetopt beep
 
 ### keychain
-LOOK_FOR_USER=`echo $USER | sed -e 's#.*\\\##'`
-PRIVATE_KEY=`find ~/.ssh/ -maxdepth 1 -regex ".*/\.ssh/.*${LOOK_FOR_USER}@[^\.]*"`
-if [ -x ~/bin/keychain ] && [ -e $PRIVATE_KEY ]; then
+LOOK_FOR_USER=`echo $USER | tr '[:upper:]' '[:lower:]' | sed -e 's#.*\\\##'`
+PRIVATE_KEY=`find ~/.ssh/ -maxdepth 1 -regex ".*/\.ssh/${LOOK_FOR_USER}@[^\.]*"`
+if [ -x ~/bin/keychain ] && [ -e "$PRIVATE_KEY" ]; then
     chmod 600 $PRIVATE_KEY
     eval $(~/bin/keychain --eval --agents ssh ${PRIVATE_KEY})
+else
+   echo "##########################################################################################" 
+   echo "ERROR: You don't have a ssh-key with \"~/.ssh/${LOOK_FOR_USER}@...\" or ~/bin/keyhcain not executable."
+   echo "##########################################################################################"
 fi
 
 ### Update if necessary
