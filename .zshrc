@@ -44,7 +44,7 @@ alias mkdir='mkdir -p'
 alias vi='vim'
 
 # Changing "ls" to "exa"
-hash exa 2>/dev/null && LS_TO_USE=exa || LS_TO_USE=/bin/ls
+[[ -x "$HOME/bin/exa" ]] && LS_TO_USE=$HOME/bin/exa || LS_TO_USE=/bin/ls
 
 alias ls="$LS_TO_USE -al --color=always --group-directories-first" # my preferred listing 
 alias la="$LS_TO_USE -a --color=always --group-directories-first"  # all files and dirs 
@@ -56,7 +56,7 @@ alias l.="$LS_TO_USE -a | egrep '^\.'"
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
-alias dl="wget -euse_proxy=on --no-check-certificate"
+alias dl="wget -euse_proxy=on --no-check-certificate --directory-prefix=$HOME/downloads"
 alias tm="tmux new -A -s default"
 
 ### Key Bindings
