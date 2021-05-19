@@ -48,7 +48,7 @@ bash  -c 'ssh-keygen -t ed25519 -a 100 -C "${SSH_NAME}@${SSH_MACHINE}" -f .ssh/$
    ```
 1. Intial setup
    ```
-   git clone --bare git@github.com:cecom/archlinux.git $HOME/.cfg
+   git clone --bare git@github.com:cecom/MyDevEnv.git $HOME/.cfg
    git --git-dir=$HOME/.cfg/ show master:bin/setupPC.sh | /bin/bash
    ```
 1. neu einlogen.
