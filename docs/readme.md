@@ -45,6 +45,9 @@ bash  -c 'ssh-keygen -t ed25519 -a 100 -C "${SSH_NAME}@${SSH_MACHINE}" -f .ssh/$
    AddKeysToAgent yes
 
    IdentityFile ~/.ssh/<XXXsshKey>
+
+   Host *
+     User cecom
    ```
 1. Intial setup
    ```
