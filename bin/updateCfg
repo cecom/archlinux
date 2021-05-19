@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+
 set -e
 
 function ask() {
@@ -57,12 +58,12 @@ function push_cfg() {
 function check_git() {
     cfg fetch --quiet > /dev/null
     #if there are changes on the remote side, which we dont have do an update
-    if [[ $(cfg lg FETCH_HEAD ^HEAD | wc -l) -gt 0 ]]; then
+    if [[ $(cfg --no-pager lg FETCH_HEAD ^HEAD | wc -l) -gt 0 ]]; then
        update_cfg
     fi
 
     #if there are changes locally, which are not pushed push them
-    if [[ $(cfg lg HEAD ^FETCH_HEAD | wc -l) -gt 0 ]]; then
+    if [[ $(cfg --no-pager lg HEAD ^FETCH_HEAD | wc -l) -gt 0 ]]; then
        push_cfg
     fi
 }
