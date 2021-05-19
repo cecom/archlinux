@@ -19,6 +19,7 @@ fi;
 cfg config --local status.showUntrackedFiles no
 
 echo "You need to install:"
+echo "  - tools   --> sudo apt install zsh unzip"
 echo "  - sublime"
 echo "  - p4merge --> https://www.perforce.com/downloads/visual-merge-tool und ggf. sudo apt install qt5-default"
 echo "  - Change fonts --> .local/share/fonts/"

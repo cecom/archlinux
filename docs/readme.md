@@ -42,7 +42,7 @@ echo "IdentityFile ~/.ssh/${SSH_NAME}@${SSH_MACHINE}" > .ssh/myLocalIdentityFile
 1. public key in github hinterlegen
 1. Intial setup
    ```
-   git clone --bare git@github.com:cecom/MyDevEnv.git $HOME/.cfg
+   GIT_SSH_COMMAND="ssh -i ~/.ssh/${SSH_NAME}@${SSH_MACHINE} -o IdentitiesOnly=yes" git clone --bare git@github.com:cecom/MyDevEnv.git $HOME/.cfg
    git --git-dir=$HOME/.cfg/ show master:bin/setupPC.sh | /bin/bash
    ```
 1. neu einlogen.

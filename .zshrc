@@ -49,7 +49,6 @@ alias vi='vim'
 alias ls="$LS_TO_USE -al --color=always --group-directories-first" # my preferred listing 
 alias la="$LS_TO_USE -a --color=always --group-directories-first"  # all files and dirs 
 alias ll="$LS_TO_USE -l --color=always --group-directories-first"  # long format 
-#alias lt="$LS_TO_USE -aT --color=always --group-directories-first" # tree listing 
 alias l.="$LS_TO_USE -a | egrep '^\.'"
 
 # Colorize grep output (good for log files) alias grep='grep --color=auto'
