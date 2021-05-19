@@ -16,10 +16,8 @@
 	pager = less -+$LESS -R
 	autocrlf = true
 [http]
-	proxy = proxy:3128
 	sslVerify = false
 [https]
-	proxy = proxy:3128
     
 [rerere]
 	enabled = true
@@ -55,45 +53,18 @@
     
     #Zeigt die Commit Historie formatiert an. Eine Zeile pro Commit.
     lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit --date=relative
+    lgnp = !sh -c 'git --no-pager lg'
     
     #Zeigt die letzten 10 benutzten Branches an, in der Reihenfolge der Nutzung.
     b = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short)'
-    
-    #Gibt den aktuellen Branch aus. Für die folgenden Aliase benötigt.
-    currentbranch = rev-parse --abbrev-ref HEAD
-    
-    #Gibt für den aktuellen bzw. übergebenen Branch den hinterlegten remote aus. Für die folgenden Aliase benötigt.
-    currentremote = "!sh -c \"if [ $# -eq 0 ] ; then \
-                            git config branch.$(git currentbranch).remote; \
-                          else \
-                            git config branch.$1.remote; \
-                          fi\""
-    
-    #Gibt für den aktuellen bzw. übergebenen Branch den hinterlegten merge Branch aus. Für die folgenden Aliase benötigt.
-    currentmergebranch = "!sh -c \"if [ $# -eq 0 ] ; then \
-                                 git config branch.$(git currentbranch).merge | sed -e 's#^refs/heads/##'; \
-                               else \
-                                 git config branch.$1.merge | sed -e 's#^refs/heads/##'; \
-                               fi\""                      
-    
-    #Zeigt alle geänderten Dateien an, die ich in meinem aktuellen Branch zum remote geändert habe. Dabei ist es egal, in welchem Commit die Änderung passierte.                              
-    dt = "!sh -c \"if [ -z \"$(git currentremote)\" ] ; then \
-                  echo "Branch ist nicht richtig konfiguriert!" ; \
-               else \
-                  git diff-tree -r --name-status \
-                     $(if [ \"$(git currentremote)\" != '.' ] ; then \
-                        echo "$(git currentremote)/" ; \
-                       fi)$(git currentmergebranch)..HEAD ; \
-               fi\""
-    
-    #Zeigt alle Commits und die geänderten Dateien an, die sich zum remote Branch geändert haben.
-    lgb = "!sh -c \"if [ -z \"$(git currentremote)\" ] ; then \
-                   echo "Branch ist nicht richtig konfiguriert!" ; \
-                else \
-                   git lg --no-merges --name-status \
-                           $( \
-                              if [ \"$(git currentremote)\" != '.' ] ; then \
-                                 echo "$(git currentremote)/" ; \
-                              fi\
-                            )$(git currentmergebranch)..HEAD ; \
-                fi\""
+
+    #commits
+    c = commit
+    ca = commit -a 
+    cm = commit -m
+    cam = commit -a -m
+    caa = commit -a --amend
+    caan = commit -a --amend --no-edit    
+
+    #list aliases
+    la = "!git config -l | grep alias | sort | cut -c 7-"
