@@ -1,0 +1,21 @@
+{
+	// Sets the colors used within the text area
+  "color_scheme": "Monokai.sublime-color-scheme",
+  "font_size": 13,
+	// Always prompt before reloading a file, even if the file hasn't been
+    // modified. The default behavior is to automatically reload a file if it
+    // hasn't been edited. If a file has unsaved changes, a prompt will always
+    // be shown.
+	"always_prompt_for_file_reload": true,
+	// The number of spaces a tab is considered equal to
+    "tab_size": 2,
+
+    // Set to true to insert spaces when tab is pressed
+    "translate_tabs_to_spaces": true,
+    // Display file encoding in the status bar
+    "show_encoding": true,
+
+    // Display line endings in the status bar
+    "show_line_endings": true,
+
+}
