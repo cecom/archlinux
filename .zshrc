@@ -22,6 +22,9 @@ SAVEHIST=10000
 setopt inc_append_history autocd nomatch autopushd pushdignoredups promptsubst hist_ignore_dups histignorespace
 unsetopt beep
 
+### NEOFETCH
+[[ -x "/usr/bin/neofetch" ]] && /usr/bin/neofetch
+
 ### keychain
 LOOK_FOR_USER=`echo $USER | tr '[:upper:]' '[:lower:]' | sed -e 's#.*\\\##'`
 PRIVATE_KEY=`find ~/.ssh/ -maxdepth 1 -regex ".*/\.ssh/${LOOK_FOR_USER}@[^\.]*"`
