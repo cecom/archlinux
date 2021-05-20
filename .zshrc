@@ -55,11 +55,11 @@ alias fgrep='fgrep --color=auto'
 # Changing "ls" to "exa"
 [[ -x "$HOME/bin/myEnv/exa" ]] && LS_TO_USE=$HOME/bin/myEnv/exa || LS_TO_USE=/bin/ls
 
-alias ls="$LS_TO_USE -al --color=always --group-directories-first" # my preferred listing 
-alias la="$LS_TO_USE -a --color=always --group-directories-first"  # all files and dirs 
-alias ll="$LS_TO_USE -l --color=always --group-directories-first"  # long format 
-alias l.="$LS_TO_USE -a | egrep '^\.'" # show only dot files in current folder
-alias ld="$LS_TO_USE -d */ .*/" # show only directories in current folder
+alias ls="$LS_TO_USE -al --color=always --group-directories-first" # all files, also . as list 
+alias la="$LS_TO_USE -a --color=always --group-directories-first"  # all files, also . as column
+alias ll="$LS_TO_USE -l --color=always --group-directories-first"  # all files as list
+alias l.="$LS_TO_USE -a | egrep '^\.'"                             # all . files as list
+alias ld="$LS_TO_USE -ld */ .*/"                                   # all directories as list
 
 ### Key Bindings
 typeset -g -A key
