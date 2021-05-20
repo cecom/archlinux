@@ -58,7 +58,8 @@ alias fgrep='fgrep --color=auto'
 alias ls="$LS_TO_USE -al --color=always --group-directories-first" # my preferred listing 
 alias la="$LS_TO_USE -a --color=always --group-directories-first"  # all files and dirs 
 alias ll="$LS_TO_USE -l --color=always --group-directories-first"  # long format 
-alias l.="$LS_TO_USE -a | egrep '^\.'"
+alias l.="$LS_TO_USE -a | egrep '^\.'" # show only dot files in current folder
+alias ld="$LS_TO_USE -d */ .*/" # show only directories in current folder
 
 ### Key Bindings
 typeset -g -A key
