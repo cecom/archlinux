@@ -2,8 +2,8 @@
 
 # .gitconfig.include
 if [[ ! -L ~/.gitconfig.include ]] ; then
-   rm ~/.gitconfig.include
-   cmd <<< "mklink .gitconfig.include .gitconfig.windows > /dev/null
+   rm -f ~/.gitconfig.include
+   cmd /c "mklink /J .gitconfig.include .gitconfig.windows"
 fi 
 
 ### Tools
