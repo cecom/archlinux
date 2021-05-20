@@ -1,4 +1,8 @@
 ### PATH
+if [ -d "$HOME/bin/myEnv" ] ;
+  then PATH="$HOME/bin/myEnv:$PATH"
+fi
+
 if [ -d "$HOME/bin" ] ;
   then PATH="$HOME/bin:$PATH"
 fi
