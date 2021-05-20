@@ -4,6 +4,11 @@
 #cupd=$(checkupdates | wc -l)
 
 #debian
-cupd=$(apt list --upgradable 2>/dev/null | grep -v "^Listing..."  | wc -l)
+#cupd=$(apt list --upgradable 2>/dev/null | grep -v "^Listing..."  | wc -l)
 
-echo "$cupd"
+#ubuntu
+if [[ "$(cat /proc/version)" =~ "Ubuntu" ]]; then
+  result=$(/usr/lib/update-notifier/apt-check --human-readable)
+fi
+
+echo "$result"

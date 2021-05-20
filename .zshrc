@@ -140,6 +140,9 @@ compinit
 [[ -d "${JAVA_HOME}" ]]  && PATH="${JAVA_HOME}/bin:${PATH}"
 [[ -d "${GO_HOME}" ]]  && PATH="${GO_HOME}/bin:${PATH}"
 
+### Update Count
+[[ -x "$HOME/bin/myEnv/updatecount" ]] && $HOME/bin/myEnv/updatecount
+
 ### PROMPT
 OH_MY_POSH_EXECUTABLE=oh-my-posh.${USE_OS_SETTINGS}
 eval "$($HOME/bin/myEnv/$OH_MY_POSH_EXECUTABLE --init --shell zsh --config ~/.config/oh-my-posh/my.json)"
