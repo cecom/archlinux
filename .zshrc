@@ -45,6 +45,12 @@ fi
 #lazy stuff
 alias mkdir='mkdir -p' 
 alias vi='vim'
+alias dl="wget -euse_proxy=on --no-check-certificate --directory-prefix=$HOME/downloads"
+alias tm="tmux new -A -s default"
+
+# Colorize grep output (good for log files) alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
 
 # Changing "ls" to "exa"
 [[ -x "$HOME/bin/exa" ]] && LS_TO_USE=$HOME/bin/exa || LS_TO_USE=/bin/ls
@@ -53,13 +59,6 @@ alias ls="$LS_TO_USE -al --color=always --group-directories-first" # my preferre
 alias la="$LS_TO_USE -a --color=always --group-directories-first"  # all files and dirs 
 alias ll="$LS_TO_USE -l --color=always --group-directories-first"  # long format 
 alias l.="$LS_TO_USE -a | egrep '^\.'"
-
-# Colorize grep output (good for log files) alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-
-alias dl="wget -euse_proxy=on --no-check-certificate --directory-prefix=$HOME/downloads"
-alias tm="tmux new -A -s default"
 
 ### Key Bindings
 typeset -g -A key
@@ -137,9 +136,10 @@ zle -N forward-word-dir
 bindkey "${key[Alt-Right]}" forward-word-dir
 
 ### Others
-# autocompletion on ssh/scp/...
-#autoload -Uz compinit
-#compinit
+# autocompletion on ssh/scp/git/exa...
+fpath=(~/.zsh $fpath)
+autoload -Uz compinit
+compinit
 
 ### ENVIRONMENT
 #export no_proxy=""

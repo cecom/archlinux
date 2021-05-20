@@ -33,7 +33,7 @@
   s = status -sb
   
   #Zeigt die Commit Historie formatiert an. Eine Zeile pro Commit.
-  lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  lg = log --graph --pretty=tformat:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   lgnp = !sh -c 'git --no-pager lg'
   
   #Commit Lazy Stuff
