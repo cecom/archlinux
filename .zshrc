@@ -89,20 +89,6 @@ bindkey '^R' history-incremental-search-backward
 # delete char on delete key
 [[ -n "${key[Delete]}" ]] && bindkey -- "${key[Delete]}" delete-char
 
-# start typing + [Up-Arrow] - fuzzy find history forward
-if [[ -n "${key[Up]}" ]]; then
-  autoload -U up-line-or-beginning-search
-  zle -N up-line-or-beginning-search
-  bindkey "${key[Up]}" up-line-or-beginning-search
-fi
-
-# start typing + [Down-Arrow] - fuzzy find history backward
-if [[ -n "${key[Down]}" ]]; then
-  autoload -U down-line-or-beginning-search
-  zle -N down-line-or-beginning-search
-  bindkey "${key[Down]}" down-line-or-beginning-search
-fi
-
 # Alt+Delete
 forward-kill-dir () {
     local WORDCHARS=${WORDCHARS/\/}
