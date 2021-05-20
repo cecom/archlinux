@@ -6,6 +6,16 @@ if [[ ! -L ~/.gitconfig.include ]] ; then
    cmd /c "mklink /J .gitconfig.include .gitconfig.windows"
 fi 
 
+# sublime config
+SUBLIME_USER_CONFIG="$APPDATA/Sublime Text 3/Packages/User"
+if [[ ! -L "$SUBLIME_USER_CONFIG" ]] ; then
+   if [[ -d "$SUBLIME_USER_CONFIG" ]] ; then
+      rm -rf "$SUBLIME_USER_CONFIG"
+   fi 
+   WINDOWS_PATH_SUBLIME_USER_CONFIG=`tr '/' '\\\\' <<< "$SUBLIME_USER_CONFIG"`
+   cmd /c "mklink /J \"$WINDOWS_PATH_SUBLIME_USER_CONFIG\" .config\\sublime-text-3\\Packages\\User"
+fi 
+
 ### Tools
 export MAVEN_HOME=/c/tools/apache-maven-3.5.0
 export JAVA_HOME=/c/Program\ Files/Java/jdk1.8.0_181
