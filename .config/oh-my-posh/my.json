@@ -34,7 +34,10 @@
           "style":"plain",
           "foreground":"#61AFEF",
           "properties":{
-            "style":"full"
+            "style":"full",
+            "mapped_locations": {
+              "C:\\msys64\\home\\Arbeit": "~"
+            }
           }
         },
         {

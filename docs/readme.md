@@ -1,5 +1,6 @@
 #todo:
-  
+  - update count ubuntu nach neofetch
+  - update commando in bin
 
 # Install Windows
 
