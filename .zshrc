@@ -2,7 +2,7 @@
 [[ $- != *i* ]] && return
 
 ### COLORS
-~/bin/shellcolors
+~/bin/myEnv/shellcolors
 
 ### LOCALS
 LOC=de_DE.UTF-8
@@ -28,17 +28,17 @@ unsetopt beep
 ### keychain
 LOOK_FOR_USER=`echo $USER | tr '[:upper:]' '[:lower:]' | sed -e 's#.*\\\##'`
 PRIVATE_KEY=`find ~/.ssh/ -maxdepth 1 -regex ".*/\.ssh/${LOOK_FOR_USER}@[^\.]*"`
-if [ -x ~/bin/keychain ] && [ -e "$PRIVATE_KEY" ]; then
+if [ -x ~/bin/myEnv/keychain ] && [ -e "$PRIVATE_KEY" ]; then
     chmod 600 $PRIVATE_KEY
-    eval $(~/bin/keychain --eval --agents ssh ${PRIVATE_KEY})
+    eval $(~/bin/myEnv/keychain --eval --agents ssh ${PRIVATE_KEY})
 else
    echo "##########################################################################################" 
-   echo "ERROR: You don't have a ssh-key with \"~/.ssh/${LOOK_FOR_USER}@...\" or ~/bin/keyhcain not executable."
+   echo "ERROR: You don't have a ssh-key with \"~/.ssh/${LOOK_FOR_USER}@...\" or ~/bin/myEnv/keychain not executable."
    echo "##########################################################################################"
 fi
 
 ### Update if necessary
-[[ -x "$HOME/bin/updateCfg" ]] && $HOME/bin/updateCfg
+[[ -x "$HOME/bin/myEnv/updateCfg" ]] && $HOME/bin/myEnv/updateCfg
 
 ### ALIASES 
 
@@ -53,7 +53,7 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
 # Changing "ls" to "exa"
-[[ -x "$HOME/bin/exa" ]] && LS_TO_USE=$HOME/bin/exa || LS_TO_USE=/bin/ls
+[[ -x "$HOME/bin/myEnv/exa" ]] && LS_TO_USE=$HOME/bin/myEnv/exa || LS_TO_USE=/bin/ls
 
 alias ls="$LS_TO_USE -al --color=always --group-directories-first" # my preferred listing 
 alias la="$LS_TO_USE -a --color=always --group-directories-first"  # all files and dirs 
@@ -156,4 +156,4 @@ compinit
 
 ### PROMPT
 OH_MY_POSH_EXECUTABLE=oh-my-posh.${USE_OS_SETTINGS}
-eval "$($OH_MY_POSH_EXECUTABLE --init --shell zsh --config ~/.config/oh-my-posh/my.json)"
+eval "$($HOME/bin/myEnv/$OH_MY_POSH_EXECUTABLE --init --shell zsh --config ~/.config/oh-my-posh/my.json)"
