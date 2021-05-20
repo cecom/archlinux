@@ -3,10 +3,11 @@
 
 # Install Windows
 
-1. Suchen nach "Developer Mode" -> Developer Mode -> aktivieren  (für symlinks benötigt)
 1. msys installieren
 1. msys starten
-1. pacman -Sy git vim curl tar unrar zsh socat
+1. pacman -Syu
+1. pacman -Sy
+1. pacman -Sy openssh git 
 1. *Initial Setup* ausführen
 1. powershell prompt anpassen, powershell starten:
    ```sh
@@ -34,6 +35,7 @@
 # Initial Setup (sowohl Windows als auch Linux)
 1. SSH-KEY anlegen 
 ```
+mkdir -p .ssh
 export SSH_NAME=$(whoami | tr '[:upper:]' '[:lower:]')
 export SSH_MACHINE=$(uname -n | tr '[:upper:]' '[:lower:]')-$(date -I)
 ssh-keygen -t ed25519 -a 100 -C "${SSH_NAME}@${SSH_MACHINE}" -f .ssh/${SSH_NAME}@${SSH_MACHINE}
