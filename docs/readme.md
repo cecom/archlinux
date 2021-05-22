@@ -40,12 +40,14 @@ mkdir -p .ssh
 export SSH_NAME=$(whoami | tr '[:upper:]' '[:lower:]')
 export SSH_MACHINE=$(uname -n | tr '[:upper:]' '[:lower:]')-$(date -I)
 ssh-keygen -t ed25519 -a 100 -C "${SSH_NAME}@${SSH_MACHINE}" -f .ssh/${SSH_NAME}@${SSH_MACHINE}
+
 echo "IdentityFile ~/.ssh/${SSH_NAME}@${SSH_MACHINE}" > .ssh/myLocalIdentityFile
 ```
 1. public key in github hinterlegen
 1. Intial setup
    ```
    GIT_SSH_COMMAND="ssh -i ~/.ssh/${SSH_NAME}@${SSH_MACHINE} -o IdentitiesOnly=yes" git clone --bare git@github.com:cecom/MyDevEnv.git $HOME/.cfg
+   
    git --git-dir=$HOME/.cfg/ show master:bin/myEnv/setupPC.sh | /bin/bash
    ```
 1. neu einlogen.
