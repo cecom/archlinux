@@ -20,7 +20,7 @@ cfg config --local status.showUntrackedFiles no
 
 echo "You need to install:"
 echo "  - Change fonts --> .local/share/fonts/"
-echo "  - tools   --> sudo apt install curl neofetch tar unrar unzip vim zsh"
+echo "  - tools   --> sudo apt install curl neofetch tar unrar unzip vim zsh xauth"
 echo "            --> pacman -Sy       curl          tar unrar unzip vim zsh"
 echo "  - sublime"
 echo "  - p4merge --> https://www.perforce.com/downloads/visual-merge-tool und ggf. sudo apt install qt5-default"

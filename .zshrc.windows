@@ -16,6 +16,9 @@ if [[ ! -L "$SUBLIME_USER_CONFIG" ]] ; then
    cmd /c "mklink /J \"$WINDOWS_PATH_SUBLIME_USER_CONFIG\" .config\\sublime-text-3\\Packages\\User"
 fi 
 
+### Display
+export DISPLAY=localhost:0.0
+
 ### Tools
 export MAVEN_HOME=/c/tools/apache-maven-3.5.0
 export JAVA_HOME=/c/Program\ Files/Java/jdk1.8.0_181
